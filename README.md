@@ -18,14 +18,10 @@ This is a forensic intake utility for **SPLITGATE: Arena Reloaded / PortalWars2*
 For the normal one-click workflow, double-click:
 
 ```text
-windows\\Run-PortalWars2-Intake.cmd
+Run-PortalWars2-Intake.cmd
 ```
 
-Or from PowerShell / Command Prompt:
-
-```powershell
-windows\\Run-PortalWars2-Intake.cmd
-```
+Or run it from PowerShell / Command Prompt.
 
 This automatically scans the current user's `%LOCALAPPDATA%` tree for `PortalWars2`, refuses to guess when multiple candidates exist, and writes a timestamped `portalwars2-intake-YYYYMMDD-HHMMSS` directory beside the launcher.
 
@@ -178,10 +174,6 @@ python3 -m portalwars2_prefix_intake --help
 On Windows, use `python` or `py -3` instead of `python3` where appropriate.
 
 No third-party runtime dependencies are required!
-
-## Release
-
-The first release is **v1.0.0**. Release notes are described in [`CHANGELOG.md`](CHANGELOG.md); the packaged release artefacts are intended for GitHub Releases rather than source control.
 
 ## Licence
 
