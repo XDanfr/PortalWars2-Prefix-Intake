@@ -1,0 +1,18 @@
+{
+  "Entries": [
+    {
+      "Category": "CMS/Snapshots",
+      "Id": "playlists-0.2.451-0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+      "FilePath": "C:\\Users\\test\\AppData\\Local\\PortalWars2\\Saved\\PersistentDownloadDir\\CMS\\Snapshots\\playlists-0.2.451-0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+      "SavedTimestamp": 123456,
+      "DiskExpirationTimeSeconds": 3600
+    },
+    {
+      "Category": "CMS/Assets",
+      "Id": "https://cms.example.invalid/private/abcdef01-2345-6789-abcd-ef0123456789.png",
+      "FilePath": "C:\\Users\\test\\AppData\\Local\\PortalWars2\\Saved\\PersistentDownloadDir\\CMS\\Assets\\abcdef01-2345-6789-abcd-ef0123456789.png",
+      "SavedTimestamp": 123457,
+      "DiskExpirationTimeSeconds": 3600
+    }
+  ]
+}
