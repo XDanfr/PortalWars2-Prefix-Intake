@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "portalwars2-prefix-intake"
+version = "1.0.0"
+description = "Sanitised forensic intake tooling for private PortalWars2 local prefixes"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "XDanfr"}]
+license = {file = "LICENSE"}
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX",
+]
+
+[project.scripts]
+portalwars2-prefix-intake = "portalwars2_prefix_intake.core:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
