@@ -1,6 +1,6 @@
 # PortalWars2 Prefix Intake
 
-**XDanfr / PortalWars2-Prefix-Intake** is an offline-first forensic intake utility for **SPLITGATE: Arena Reloaded / PortalWars2** local application data.
+This is a forensic intake utility for **SPLITGATE: Arena Reloaded / PortalWars2** local application data.
 
 It exists because a Windows `%LOCALAPPDATA%` directory is not a clean game-only folder. It can contain unrelated applications, temporary installers, crash data and other personal material. The tool therefore finds the `PortalWars2` directory inside a broader LocalAppData tree and produces a **sanitised metadata record** of that game prefix instead of copying the prefix itself.
 
@@ -114,9 +114,9 @@ See [`docs/privacy.md`](docs/privacy.md) for the exact sanitisation policy.
 
 ## ReMaverick provenance
 
-This project was created from analysis tooling used during the ReMaverick research and preservation project. ReMaverick remains the evidence/source-of-truth repository; this repository contains the reusable intake implementation.
+This project was created from analysis tooling used during the ReMaverick research and preservation project
 
-The ReMaverick project documents a policy of publishing metadata and hashes instead of proprietary game files, and requires AI-assisted research to record tool usage and independently verify claims. The standalone tool follows the same principles. See [`docs/research-provenance.md`](docs/research-provenance.md).
+The ReMaverick project documents a policy of publishing metadata and hashes instead of proprietary game files, and requires AI-assisted research to record tool usage and independently verify claims. See [`docs/research-provenance.md`](docs/research-provenance.md).
 
 ## Development
 
@@ -132,7 +132,7 @@ Run a local CLI smoke test:
 python -m portalwars2_prefix_intake --help
 ```
 
-No third-party runtime dependencies are required.
+No third-party runtime dependencies are required!
 
 ## Release
 
