@@ -2,9 +2,52 @@
 
 This is a forensic intake utility for **SPLITGATE: Arena Reloaded / PortalWars2** local application data.
 
-It exists because a Windows `%LOCALAPPDATA%` directory is not a clean game-only folder. It can contain unrelated applications, temporary installers, crash data and other personal material. The tool therefore finds the `PortalWars2` directory inside a broader LocalAppData tree and produces a **sanitised metadata record** of that game prefix instead of copying the prefix itself.
+> [!WARNING]
+> **Python 3.10 or newer is required.** The tool is Python-based and does not include its own Python runtime.
+>
+> Check your installation with `python --version` (or `py --version` on Windows).
+>
+> If Python is not installed, use the official installer for your platform:
+> - Windows: https://www.python.org/downloads/windows/
+> - Linux: use your distribution's Python 3 package (for example `sudo apt install python3 python3-venv` on Debian/Ubuntu, or `sudo dnf install python3` on Fedora/Nobara/Bazzite).
 
-The tool was extracted from the ReMaverick research workflow so the reusable mechanism can be versioned, tested and used independently of the research repository.
+## Quick start
+
+### Windows
+
+For the normal one-click workflow, double-click:
+
+```text
+windows\\Run-PortalWars2-Intake.cmd
+```
+
+Or from PowerShell / Command Prompt:
+
+```powershell
+windows\\Run-PortalWars2-Intake.cmd
+```
+
+This automatically scans the current user's `%LOCALAPPDATA%` tree for `PortalWars2`, refuses to guess when multiple candidates exist, and writes a timestamped `portalwars2-intake-YYYYMMDD-HHMMSS` directory beside the launcher.
+
+### Linux (Proton)
+
+For a standard Steam Proton installation of AppID `2918300`:
+
+```bash
+python3 -m portalwars2_prefix_intake "$HOME/.local/share/Steam/steamapps/compatdata/2918300/pfx/drive_c/users/steamuser/AppData/Local"
+```
+
+If your Steam library is elsewhere, point the command at the corresponding Proton `AppData/Local` directory or directly at its `PortalWars2` directory:
+
+```bash
+python3 -m portalwars2_prefix_intake "/path/to/PortalWars2"
+```
+
+For an extracted `Local` archive on either platform:
+
+```bash
+python3 -m portalwars2_prefix_intake ./Local
+```
 
 ## What it does
 
@@ -37,13 +80,7 @@ The launcher:
 4. creates a timestamped `portalwars2-intake-YYYYMMDD-HHMMSS` directory **beside the launcher**;
 5. leaves the original prefix untouched.
 
-A Python 3.10+ installation is required. The launcher tries `py -3` first and then `python`.
-
-For a command window:
-
-```powershell
-windows\\Run-PortalWars2-Intake.cmd
-```
+The launcher tries `py -3` first and then `python`.
 
 ## Command line
 
@@ -59,16 +96,22 @@ Automatically use `%LOCALAPPDATA%` on Windows:
 python -m portalwars2_prefix_intake --localappdata --output .\\intake
 ```
 
+Linux with a Proton `AppData/Local` root:
+
+```bash
+python3 -m portalwars2_prefix_intake "/path/to/compatdata/2918300/pfx/drive_c/users/steamuser/AppData/Local" --output ./intake
+```
+
 Extracted `Local` archive:
 
 ```bash
-python -m portalwars2_prefix_intake ./Local --output ./intake
+python3 -m portalwars2_prefix_intake ./Local --output ./intake
 ```
 
 Fast triage without hashes:
 
 ```bash
-python -m portalwars2_prefix_intake --localappdata --no-hash
+python3 -m portalwars2_prefix_intake --no-hash
 ```
 
 ## Output
@@ -114,7 +157,7 @@ See [`docs/privacy.md`](docs/privacy.md) for the exact sanitisation policy.
 
 ## ReMaverick provenance
 
-This project was created from analysis tooling used during the ReMaverick research and preservation project
+This project was created from analysis tooling used during the ReMaverick research and preservation project.
 
 The ReMaverick project documents a policy of publishing metadata and hashes instead of proprietary game files, and requires AI-assisted research to record tool usage and independently verify claims. See [`docs/research-provenance.md`](docs/research-provenance.md).
 
@@ -123,14 +166,16 @@ The ReMaverick project documents a policy of publishing metadata and hashes inst
 Run the standard-library test suite:
 
 ```bash
-python -m unittest discover -s tests -v
+python3 -m unittest discover -s tests -v
 ```
 
 Run a local CLI smoke test:
 
 ```bash
-python -m portalwars2_prefix_intake --help
+python3 -m portalwars2_prefix_intake --help
 ```
+
+On Windows, use `python` or `py -3` instead of `python3` where appropriate.
 
 No third-party runtime dependencies are required!
 
